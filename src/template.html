@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TEAM__ Daily</title>
+<meta name="description" content="__DESCRIPTION__">
+<link rel="icon" type="image/png" href="assets/ironwolves-logo.png">
+<link rel="alternate" type="application/rss+xml" title="__TEAM__ AI digest" href="feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<a class="skip" href="#digest">Skip to digest</a>
+
+<header class="masthead" id="top">
+  <div class="masthead-inner">
+    <a class="brand" href="#" aria-label="__TEAM__ home">
+      <span class="logo-wrap" id="logo-wrap" data-mood="fresh">
+        <img class="logo" src="assets/ironwolves-logo.png" alt="__TEAM__ wolf logo" width="72" height="72">
+        <span class="mood-dot" id="mood-dot" title=""></span>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">__TEAM__</span>
+        <span class="brand-tag">Daily AI Digest</span>
+      </span>
+    </a>
+    <div class="masthead-right">
+      <span class="mood-label" id="mood-label"></span>
+      <a class="icon-btn" href="feed.xml" title="RSS feed" aria-label="RSS feed">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.18 15.64a2.18 2.18 0 1 1 0 4.36 2.18 2.18 0 0 1 0-4.36M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"/></svg>
+      </a>
+      <button class="icon-btn" id="theme-toggle" type="button" title="Toggle dark / light" aria-label="Toggle dark or light theme">
+        <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10m0-5 1.5 3h-3zm0 20-1.5-3h3zM2 12l3-1.5v3zm20 0-3 1.5v-3zM4.9 4.9l3.2 1.1-2.1 2.1zm14.2 14.2-3.2-1.1 2.1-2.1zM4.9 19.1l1.1-3.2 2.1 2.1zM19.1 4.9l-1.1 3.2-2.1-2.1z"/></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.3 2a9.9 9.9 0 0 0-1.6.1 8 8 0 0 0 9.6 12.4A10 10 0 0 1 12.3 2"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="masthead-stripe" aria-hidden="true"></div>
+</header>
+
+<main class="layout">
+  <section class="content">
+    <nav class="daynav" aria-label="Digest navigation">
+      <button class="nav-btn" id="prev-day" type="button" aria-label="Previous digest">&larr; Older</button>
+      <div class="daynav-center">
+        <h1 class="day-title" id="day-title">Loading…</h1>
+        <p class="day-meta" id="day-meta"></p>
+      </div>
+      <button class="nav-btn" id="next-day" type="button" aria-label="Next digest">Newer &rarr;</button>
+    </nav>
+
+    <div class="notice" id="stale-notice" hidden></div>
+
+    <div class="hero" id="hero" hidden>
+      <div class="hero-kicker">Today's big item</div>
+      <p class="hero-text" id="hero-text"></p>
+    </div>
+
+    <div class="toolbar">
+      <div class="chips" id="chips" role="list" aria-label="Categories"></div>
+      <label class="search">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2m0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12"/></svg>
+        <input id="search" type="search" placeholder="Search all digests…" autocomplete="off" aria-label="Search all digests">
+      </label>
+    </div>
+
+    <article class="digest" id="digest" aria-live="polite"></article>
+  </section>
+
+  <aside class="sidebar">
+    <section class="tile" id="calendar-tile" aria-labelledby="cal-title">
+      <header class="tile-head">
+        <h2 class="tile-title" id="cal-title">Squad calendar</h2>
+        <div class="cal-nav">
+          <button class="mini-btn" id="cal-prev" type="button" aria-label="Previous month">&lsaquo;</button>
+          <span class="cal-month" id="cal-month"></span>
+          <button class="mini-btn" id="cal-next" type="button" aria-label="Next month">&rsaquo;</button>
+        </div>
+      </header>
+      <div class="cal-grid" id="cal-grid" role="grid"></div>
+      <div class="cal-legend">
+        <span><i class="dot t-birthday"></i>Birthday</span>
+        <span><i class="dot t-lunch"></i>Lunch</span>
+        <span><i class="dot t-anniversary"></i>Anniversary</span>
+        <span><i class="dot t-meeting"></i>Meeting</span>
+        <span><i class="dot t-other"></i>Other</span>
+        <span><i class="dot t-digest"></i>Digest</span>
+      </div>
+      <h3 class="sub-title">Next up</h3>
+      <ul class="upcoming" id="upcoming"></ul>
+      <a class="tile-link" id="add-event" href="#" target="_blank" rel="noopener" hidden>Add an event &rarr;</a>
+    </section>
+
+    <section class="tile" id="meme-tile" aria-labelledby="meme-title">
+      <header class="tile-head">
+        <h2 class="tile-title" id="meme-title">Meme of the week</h2>
+        <div class="cal-nav">
+          <button class="mini-btn" id="meme-prev" type="button" aria-label="Previous meme">&lsaquo;</button>
+          <span class="cal-month" id="meme-week"></span>
+          <button class="mini-btn" id="meme-next" type="button" aria-label="Next meme">&rsaquo;</button>
+        </div>
+      </header>
+      <figure class="meme">
+        <a id="meme-link" href="#" target="_blank" rel="noopener"><img id="meme-img" alt="Meme of the week" loading="lazy"></a>
+        <figcaption>
+          <span id="meme-caption"></span>
+          <span class="meme-by" id="meme-by"></span>
+        </figcaption>
+      </figure>
+      <a class="tile-link" id="submit-meme" href="#" target="_blank" rel="noopener" hidden>Submit a meme &rarr;</a>
+    </section>
+  </aside>
+</main>
+
+<footer class="footer">
+  <span id="footer-built"></span>
+  <span class="sep">·</span>
+  <a href="feed.xml">RSS</a>
+  <span class="sep">·</span>
+  <a id="footer-repo" href="#" target="_blank" rel="noopener" hidden>Source</a>
+  <span class="sep hidden-if-no-repo">·</span>
+  <span>Built with a daily AI research scheduler.</span>
+</footer>
+
+<script id="site-data" type="application/json">/*__DATA__*/</script>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>
