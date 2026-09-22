@@ -1,10 +1,7 @@
 {
   "_comment": "One entry per event. date is YYYY-MM-DD. recurring: 'yearly' repeats every year on the same month/day (birthdays, work anniversaries). type drives the colour dot: lunch | birthday | anniversary | meeting | other.",
   "events": [
-    { "title": "Pedro's birthday", "date": "2026-09-24", "type": "birthday", "recurring": "yearly", "who": "Pedro" },
-    { "title": "Team lunch at the pizzeria", "date": "2026-09-26", "type": "lunch", "time": "12:30", "where": "Pizzeria Pantano" },
-    { "title": "Sprint review", "date": "2026-09-30", "type": "meeting", "time": "15:00" },
-    { "title": "IronWolves squad anniversary", "date": "2026-10-01", "type": "anniversary", "recurring": "yearly" },
-    { "title": "Squad demo day", "date": "2026-10-15", "type": "other", "time": "10:00", "where": "Room 3.2" }
+    { "title": "Pedro Carvalho's birthday", "date": "2026-10-20", "type": "birthday", "recurring": "yearly", "who": "Pedro" },
+    { "title": "Team lunch at the Afonso's", "date": "2026-09-22", "type": "lunch", "time": "12:15", "where": "Afonso's" }
   ]
 }
