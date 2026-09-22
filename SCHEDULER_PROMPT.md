@@ -5,7 +5,7 @@ rules are unchanged. Only the **Output** section is different: the digest is wri
 this repository, the "big item" summary also goes into the file as a blockquote so the page
 can show it as a hero banner, and the publish script runs at the end.
 
-The task is registered in the Claude desktop app as `ironwolves-ai-digest`, daily at 09:30
+The task is registered in the Claude desktop app as `ironwolves-ai-digest`, weekdays at 09:30
 (the app adds a fixed delay of a few minutes). It runs on Pedro's machine while the app is open;
 if the app is closed at 09:30 the run happens at next launch. Task file:
 `C:\Users\pmdcarvalho\.claude\scheduled-tasks\ironwolves-ai-digest\SKILL.md`.

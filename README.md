@@ -3,7 +3,7 @@
 Live site: https://pedrocarvalho2024.github.io/IronWolvesAINews
 Repository: https://github.com/PedroCarvalho2024/IronWolvesAINews
 
-A static newsletter page for the IronWolves squad. Every morning a Claude scheduled task
+A static newsletter page for the IronWolves squad. Every weekday morning at 09:30 a Claude scheduled task
 researches AI news, writes a markdown digest into `digests/`, and pushes. GitHub Actions
 rebuilds the site and deploys it to GitHub Pages.
 
@@ -34,7 +34,7 @@ Then open http://localhost:8765. No dependencies beyond Node 18+.
 2. It runs `scripts/publish.ps1`, which builds, commits and pushes.
 3. The `pages.yml` workflow builds again on the runner and deploys to Pages.
 
-Weekends and holidays need nothing. The page shows the latest digest with a "stale" notice.
+The task runs Monday to Friday. Weekends and holidays need nothing. The page shows the latest digest with a "stale" notice.
 
 ## Digest format
 

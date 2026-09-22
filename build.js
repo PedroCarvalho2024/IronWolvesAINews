@@ -181,34 +181,6 @@ function build() {
   fs.writeFileSync(path.join(OUT_DIR, 'data.json'), JSON.stringify(data, null, 2));
   fs.writeFileSync(path.join(OUT_DIR, '.nojekyll'), '');
 
-  // RSS feed: one entry per digest.
-  const site = config.siteUrl || '';
-  const rssItems = digests.slice().reverse().slice(0, 30).map(d => {
-    const body = d.categories.map(c =>
-      `<h3>${esc(c.name)}</h3><ul>` + c.items.map(i =>
-        `<li><b>${esc(i.headline)}</b> ${esc(i.sentence)}${i.link ? ` <a href="${esc(i.link)}">link</a>` : ''}</li>`).join('') + '</ul>').join('');
-    return `  <item>
-    <title>${esc(`${config.team} AI digest ${d.date}`)}</title>
-    <link>${esc(`${site}/#${d.date}`)}</link>
-    <guid isPermaLink="false">${esc(`${config.team}-digest-${d.date}`)}</guid>
-    <pubDate>${new Date(`${d.date}T07:00:00Z`).toUTCString()}</pubDate>
-    <description><![CDATA[${d.hero ? `<p><b>Big item:</b> ${esc(d.hero)}</p>` : ''}${body}]]></description>
-  </item>`;
-  }).join('\n');
-  const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-  <title>${esc(config.team)} AI digest</title>
-  <link>${esc(site || 'https://example.invalid')}</link>
-  <description>Daily AI digest for the ${esc(config.team)} squad.</description>
-  <language>en</language>
-  <lastBuildDate>${now.toUTCString()}</lastBuildDate>
-${rssItems}
-</channel>
-</rss>
-`;
-  fs.writeFileSync(path.join(OUT_DIR, 'feed.xml'), rss);
-
   console.log(`built site/: ${digests.length} digest(s), ${events.length} event(s), ${memes.length} meme(s)`);
   if (latest) console.log(`latest digest: ${latest.date} (${latest.itemCount} items, ${latest.categories.length} categories)`);
 }
