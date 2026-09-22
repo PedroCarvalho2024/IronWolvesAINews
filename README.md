@@ -1,5 +1,8 @@
 # IronWolves Daily
 
+Live site: https://pedrocarvalho2024.github.io/IronWolvesAINews
+Repository: https://github.com/PedroCarvalho2024/IronWolvesAINews
+
 A static newsletter page for the IronWolves squad. Every morning a Claude scheduled task
 researches AI news, writes a markdown digest into `digests/`, and pushes. GitHub Actions
 rebuilds the site and deploys it to GitHub Pages.
@@ -82,20 +85,19 @@ Two ways to add one:
 The page shows the meme for the current ISO week, or the most recent one before it.
 Older memes stay browsable with the arrows.
 
-## First deployment
+## Deployment
 
-1. Create an empty GitHub repository (private is fine, Pages works on private repos with
-   GitHub Enterprise or a paid plan; otherwise make it public or internal).
-2. Fill `repoUrl` and `siteUrl` in `data/config.json`.
-3. In the repo settings, Pages → Source → **GitHub Actions**.
-4. Push:
+The site deploys from the `main` branch of
+https://github.com/PedroCarvalho2024/IronWolvesAINews through the `pages.yml` workflow.
+Pages must be set to **Source: GitHub Actions** in the repository settings
+(Settings → Pages). After that, every push to `main` republishes the site at
+https://pedrocarvalho2024.github.io/IronWolvesAINews within about a minute.
+
+To publish by hand from this machine:
 
 ```bash
-git remote add origin https://github.com/<org>/<repo>.git
-git push -u origin main
+powershell -ExecutionPolicy Bypass -File scripts/publish.ps1
 ```
-
-The first workflow run publishes the site at the URL shown in the Actions log.
 
 ## Keyboard shortcuts
 
