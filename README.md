@@ -31,7 +31,7 @@ Then open http://localhost:8765. No dependencies beyond Node 18+.
 ## Daily flow
 
 1. The scheduler writes `digests/ai-digest-<today>.md` (format below).
-2. It runs `scripts/publish.ps1`, which builds, commits and pushes.
+2. It runs `scripts/publish.ps1`, which pulls any edits made on GitHub, builds, commits and pushes.
 3. The `pages.yml` workflow builds again on the runner and deploys to Pages.
 
 The task runs Monday to Friday. Weekends and holidays need nothing. The page shows the latest digest with a "stale" notice.
@@ -75,7 +75,7 @@ The wolf logo enters "party mode" on days with a birthday or anniversary.
 
 Two ways to add one:
 
-- **Direct:** drop the image in `memes/` and add an entry to `memes/memes.json`
+- **Direct:** drop the image (PNG, JPG, GIF or WebP; animated GIFs play) in `memes/` and add an entry to `memes/memes.json`
   with `file`, `caption`, `week` (ISO week like `2026-W40`) and `by`. Open a pull request
   or push to `main`.
 - **Issue form:** teammates click "Submit a meme" on the page. It opens a GitHub issue
