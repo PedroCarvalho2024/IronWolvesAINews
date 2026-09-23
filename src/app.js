@@ -58,6 +58,7 @@
   let activeChip = 'all';
   let query = '';
   let calCursor = new Date(today.getFullYear(), today.getMonth(), 1);
+  let calDay = TODAY;      // day picked in the calendar tile
   let memeIndex = -1;
 
   function initialDate() {
@@ -191,12 +192,26 @@
       if (k >= 35 && out) break;
       const evs = eventsOn(ds);
       const hasDigest = !!digestByDate[ds];
-      const cls = ['cal-day', out ? 'out' : '', hasDigest ? 'has-digest' : '', ds === TODAY ? 'today' : '', ds === selectedDate && !query ? 'selected' : ''].filter(Boolean).join(' ');
+      const cls = ['cal-day', out ? 'out' : '', hasDigest ? 'has-digest' : '', ds === TODAY ? 'today' : '', ds === selectedDate && !query ? 'selected' : '', ds === calDay ? 'picked' : ''].filter(Boolean).join(' ');
       const dots = evs.slice(0, 3).map(e => `<i class="dot t-${esc(e.type || 'other')}"></i>`).join('');
       const title = [hasDigest ? 'Digest available' : '', ...evs.map(e => e.title)].filter(Boolean).join('\n');
       cells.push(`<button type="button" class="${cls}" data-day="${ds}" title="${esc(title)}" aria-label="${esc(fmtLong(ds))}${title ? ': ' + esc(title.replace(/\n/g, ', ')) : ''}" role="gridcell">${d.getDate()}${dots ? `<span class="dots">${dots}</span>` : ''}</button>`);
     }
     $('cal-grid').innerHTML = cells.join('');
+  }
+
+  function renderDayDetail() {
+    const evs = eventsOn(calDay);
+    const rel = daysBetween(TODAY, calDay);
+    const when = rel === 0 ? 'Today' : rel === 1 ? 'Tomorrow' : rel === -1 ? 'Yesterday' : fmtLong(calDay).split(',')[0];
+    const head = `<div class="dd-head"><span class="dd-when">${esc(when)}</span><span class="dd-date">${esc(fmtShort(calDay))}${digestByDate[calDay] ? ' · digest' : ''}</span></div>`;
+    const body = evs.length
+      ? `<ul class="dd-list">${evs.map(e => {
+          const sub = [e.time, e.where, e.who && !e.title.includes(e.who) ? e.who : '', e.years > 0 && e.type === 'anniversary' ? `${e.years} yr${e.years === 1 ? '' : 's'}` : ''].filter(Boolean).join(' · ');
+          return `<li><i class="dot t-${esc(e.type || 'other')}"></i><span class="ev-title">${esc(e.title)}${sub ? `<span class="ev-sub">${esc(sub)}</span>` : ''}</span></li>`;
+        }).join('')}</ul>`
+      : '<p class="dd-empty">No events on this day.</p>';
+    $('day-detail').innerHTML = head + body;
   }
 
   function renderUpcoming() {
@@ -287,7 +302,10 @@
   $('cal-next').addEventListener('click', () => { calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth() + 1, 1); renderCalendar(); });
   $('cal-grid').addEventListener('click', e => {
     const b = e.target.closest('button[data-day]'); if (!b) return;
-    if (digestByDate[b.dataset.day]) selectDate(b.dataset.day, { scroll: window.innerWidth < 960 });
+    calDay = b.dataset.day;
+    if (digestByDate[calDay]) selectDate(calDay, { scroll: window.innerWidth < 960 });
+    else renderCalendar();
+    renderDayDetail();
   });
   $('meme-prev').addEventListener('click', () => { if (memeIndex > 0) { memeIndex--; renderMeme(); } });
   $('meme-next').addEventListener('click', () => { if (memeIndex < memes.length - 1) { memeIndex++; renderMeme(); } });
@@ -304,5 +322,5 @@
   selectedDate = initialDate();
   if (selectedDate) calCursor = new Date(parseIso(selectedDate).getFullYear(), parseIso(selectedDate).getMonth(), 1);
   memeIndex = pickMemeIndex();
-  renderMood(); renderDigest(); renderCalendar(); renderUpcoming(); renderMeme();
+  renderMood(); renderDigest(); renderCalendar(); renderDayDetail(); renderUpcoming(); renderMeme();
 })();
