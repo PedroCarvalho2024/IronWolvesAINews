@@ -1,7 +1,17 @@
 {
   "_comment": "One entry per event. date is YYYY-MM-DD. recurring: 'yearly' repeats every year on the same month/day (birthdays, work anniversaries). type drives the colour dot: lunch | birthday | anniversary | meeting | other.",
   "events": [
-    { "title": "Pedro Carvalho's birthday", "date": "2026-10-20", "type": "birthday", "recurring": "yearly", "who": "Pedro" },
-    { "title": "Team lunch at the Afonso's", "date": "2026-09-22", "type": "lunch", "time": "12:15", "where": "Afonso's" }
+    { "title": "Pedro Carvalho's birthday", "date": "2026-10-20", "type": "birthday", "recurring": "yearly", "who": "Pedro Carvalho" },
+    { "title": "Luís Correia's birthday", "date": "2026-09-18", "type": "birthday", "recurring": "yearly", "who": "Luís Correia" },
+    { "title": "Gonçalo Araújo's birthday", "date": "2026-09-17", "type": "birthday", "recurring": "yearly", "who": "Gonçalo Rocha Araújo" },
+    { "title": "Ana Costa's birthday", "date": "2026-07-31", "type": "birthday", "recurring": "yearly", "who": "Ana Costa" },
+    { "title": "Luís Galo's birthday", "date": "2026-07-31", "type": "birthday", "recurring": "yearly", "who": "Luís Galo" },
+    { "title": "Rafael Novo's birthday", "date": "2026-07-24", "type": "birthday", "recurring": "yearly", "who": "Rafael Novo" },
+    { "title": "José Nascimento's birthday", "date": "2026-07-21", "type": "birthday", "recurring": "yearly", "who": "José Nascimento" },
+    { "title": "Daniela Silveira's birthday", "date": "2026-07-18", "type": "birthday", "recurring": "yearly", "who": "Daniela Silveira" },
+    { "title": "Pedro Nunes's birthday", "date": "2026-06-27", "type": "birthday", "recurring": "yearly", "who": "Pedro Nunes" },
+    { "title": "Carlos Costa's birthday", "date": "2026-06-24", "type": "birthday", "recurring": "yearly", "who": "Carlos Costa" },
+    { "title": "Rui Graça's birthday", "date": "2026-06-19", "type": "birthday", "recurring": "yearly", "who": "Rui Graça" },
+    { "title": "Team lunch at the Afonso's", "date": "2026-09-22", "type": "lunch", "time": "12:15", "where": "Afonso" }
   ]
 }

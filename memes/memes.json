@@ -1,6 +1,6 @@
 {
   "_comment": "One entry per meme. week is the ISO week (YYYY-Www) the meme is featured. The page shows the meme for the current week, or the most recent one before it. Put the image file in this folder.",
   "memes": [
-    { "file": "2026-W39-sample.png", "caption": "When the retrieval pipeline returns the right chunk on the first try.", "week": "2026-W39", "by": "Pedro" }
+    { "file": "cat.png", "caption": "Cat meme.", "week": "2026-W39", "by": "Pedro" }
   ]
 }
