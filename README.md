@@ -77,6 +77,12 @@ The wolf logo enters "party mode" on days with a birthday or anniversary.
 vacation), so people bring their own lunch. Use `date` + `end` for the whole range. On
 those days the masthead shows a reminder.
 
+The cook's vacation entries come from Pulsar (employee login `mfpeixoto`, tool
+`get_employee_absences`) and carry `"source": "pulsar:mfpeixoto"`. To refresh them, ask
+Claude in this project to "re-sync Fátima's vacations from Pulsar": it replaces every entry
+with that source and leaves hand-written events alone. Last sync: 2026-09-24, covering the
+2026 reference year (through March 2027).
+
 ## Meme of the week
 
 Two ways to add one:
