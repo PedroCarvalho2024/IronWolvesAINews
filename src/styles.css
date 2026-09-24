@@ -268,6 +268,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .t-lunch { background: #f0a020; }
 .t-anniversary { background: #7c5cff; }
 .t-meeting { background: #2f9cf0; }
+.t-nofood { background: #c9742a; }
 .t-other { background: #8a8a90; }
 .t-digest { background: var(--red); }
 .day-detail { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: var(--bg-sunken); border: 1px solid var(--border); }

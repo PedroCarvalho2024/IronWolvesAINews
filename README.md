@@ -63,13 +63,19 @@ Edit `data/events.json`. Fields:
 |-------------|----------|--------------------------------------------------------|
 | `title`     | yes      | shown in the tile                                      |
 | `date`      | yes      | `YYYY-MM-DD`                                           |
-| `type`      | yes      | `lunch`, `birthday`, `anniversary`, `meeting`, `other` |
+| `type`      | yes      | `lunch`, `birthday`, `anniversary`, `meeting`, `nofood`, `other` |
+| `end`       | no       | `YYYY-MM-DD`, inclusive; makes the event span a range   |
+| `note`      | no       | free text shown under the title                        |
 | `recurring` | no       | `yearly` repeats on the same month/day every year      |
 | `time`      | no       | free text, e.g. `12:30`                                |
 | `where`     | no       | free text                                              |
 | `who`       | no       | free text                                              |
 
 The wolf logo enters "party mode" on days with a birthday or anniversary.
+
+`nofood` marks days when nobody is cooking at the Porto office (for example the cook's
+vacation), so people bring their own lunch. Use `date` + `end` for the whole range. On
+those days the masthead shows a reminder.
 
 ## Meme of the week
 

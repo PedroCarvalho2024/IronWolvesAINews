@@ -35,6 +35,7 @@
     return events.filter(e => {
       if (!e.date) return false;
       if (e.recurring === 'yearly') return e.date.slice(5) === `${m}-${d}`;
+      if (e.end) return dateStr >= e.date && dateStr <= e.end;
       return e.date === dateStr;
     }).map(e => ({ ...e, on: dateStr, years: e.recurring === 'yearly' ? Number(y) - Number(e.date.slice(0, 4)) : null }));
   }
@@ -78,6 +79,13 @@
       wrap.dataset.mood = 'party';
       label.textContent = `🎉 ${bdays.map(e => e.title).join(' · ')}`;
       dot.title = 'Party mode: celebration today';
+      return;
+    }
+    const nofood = eventsOn(TODAY).filter(e => e.type === 'nofood');
+    if (nofood.length) {
+      wrap.dataset.mood = latest && daysBetween(latest.date, TODAY) <= 1 ? 'fresh' : 'stale';
+      label.textContent = '🥪 No food at the Porto office today, bring your own';
+      dot.title = nofood[0].title;
       return;
     }
     if (!latest) { wrap.dataset.mood = 'stale'; label.textContent = 'No digest yet'; return; }
@@ -207,7 +215,7 @@
     const head = `<div class="dd-head"><span class="dd-when">${esc(when)}</span><span class="dd-date">${esc(fmtShort(calDay))}${digestByDate[calDay] ? ' · digest' : ''}</span></div>`;
     const body = evs.length
       ? `<ul class="dd-list">${evs.map(e => {
-          const sub = [e.time, e.where, e.who && !e.title.includes(e.who) ? e.who : '', e.years > 0 && e.type === 'anniversary' ? `${e.years} yr${e.years === 1 ? '' : 's'}` : ''].filter(Boolean).join(' · ');
+          const sub = [e.end ? `${fmtShort(e.date)} to ${fmtShort(e.end)}` : '', e.time, e.where, e.who && !e.title.includes(e.who) ? e.who : '', e.years > 0 && e.type === 'anniversary' ? `${e.years} yr${e.years === 1 ? '' : 's'}` : '', e.note].filter(Boolean).join(' · ');
           return `<li><i class="dot t-${esc(e.type || 'other')}"></i><span class="ev-title">${esc(e.title)}${sub ? `<span class="ev-sub">${esc(sub)}</span>` : ''}</span></li>`;
         }).join('')}</ul>`
       : '<p class="dd-empty">No events on this day.</p>';
@@ -216,15 +224,21 @@
 
   function renderUpcoming() {
     const list = [];
+    const seen = new Set();
     for (let k = 0; k < 120 && list.length < 4; k++) {
       const d = new Date(today.getFullYear(), today.getMonth(), today.getDate() + k);
-      for (const e of eventsOn(iso(d))) list.push(e);
+      for (const e of eventsOn(iso(d))) {
+        const key = e.end ? `${e.title}|${e.date}|${e.end}` : `${e.title}|${e.on}`;
+        if (seen.has(key)) continue;
+        seen.add(key); list.push(e);
+      }
     }
     const top = list.slice(0, 4);
     $('upcoming').innerHTML = top.length ? top.map(e => {
       const n = daysBetween(TODAY, e.on);
-      const when = n === 0 ? 'today' : n === 1 ? 'tomorrow' : `in ${n} days`;
-      const sub = [fmtShort(e.on), e.time, e.where, e.years > 0 && e.type === 'anniversary' ? `${e.years} yr${e.years === 1 ? '' : 's'}` : ''].filter(Boolean).join(' · ');
+      const ongoing = e.end && n === 0 && e.date < TODAY;
+      const when = ongoing ? `until ${fmtShort(e.end).replace(/^\w+ /, '')}` : n === 0 ? 'today' : n === 1 ? 'tomorrow' : `in ${n} days`;
+      const sub = [e.end ? `${fmtShort(e.date)} to ${fmtShort(e.end)}` : fmtShort(e.on), e.time, e.where, e.years > 0 && e.type === 'anniversary' ? `${e.years} yr${e.years === 1 ? '' : 's'}` : '', e.note].filter(Boolean).join(' · ');
       return `<li><i class="dot t-${esc(e.type || 'other')}"></i><span class="ev-title">${esc(e.title)}<span class="ev-sub">${esc(sub)}</span></span><span class="in ${n <= 2 ? 'soon' : ''}">${when}</span></li>`;
     }).join('') : '<li class="ev-sub">Nothing scheduled in the next four months.</li>';
   }
