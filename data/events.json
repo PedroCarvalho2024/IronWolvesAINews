@@ -1,17 +1,186 @@
 {
   "_comment": "One entry per event. date is YYYY-MM-DD. recurring: 'yearly' repeats every year on the same month/day (birthdays, work anniversaries). type drives the colour dot: lunch | birthday | anniversary | meeting | nofood | other. Optional end (YYYY-MM-DD, inclusive) makes a multi-day range, e.g. vacations; optional note is shown under the title.",
   "events": [
-    { "title": "Pedro Carvalho's birthday", "date": "2026-10-20", "type": "birthday", "recurring": "yearly", "who": "Pedro Carvalho" },
-    { "title": "Luís Correia's birthday", "date": "2026-09-18", "type": "birthday", "recurring": "yearly", "who": "Luís Correia" },
-    { "title": "Gonçalo Araújo's birthday", "date": "2026-09-17", "type": "birthday", "recurring": "yearly", "who": "Gonçalo Rocha Araújo" },
-    { "title": "Ana Costa's birthday", "date": "2026-07-31", "type": "birthday", "recurring": "yearly", "who": "Ana Costa" },
-    { "title": "Luís Galo's birthday", "date": "2026-07-31", "type": "birthday", "recurring": "yearly", "who": "Luís Galo" },
-    { "title": "Rafael Novo's birthday", "date": "2026-07-24", "type": "birthday", "recurring": "yearly", "who": "Rafael Novo" },
-    { "title": "José Nascimento's birthday", "date": "2026-07-21", "type": "birthday", "recurring": "yearly", "who": "José Nascimento" },
-    { "title": "Daniela Silveira's birthday", "date": "2026-07-18", "type": "birthday", "recurring": "yearly", "who": "Daniela Silveira" },
-    { "title": "Pedro Nunes's birthday", "date": "2026-06-27", "type": "birthday", "recurring": "yearly", "who": "Pedro Nunes" },
-    { "title": "Carlos Costa's birthday", "date": "2026-06-24", "type": "birthday", "recurring": "yearly", "who": "Carlos Costa" },
-    { "title": "Rui Graça's birthday", "date": "2026-06-19", "type": "birthday", "recurring": "yearly", "who": "Rui Graça" },
-    { "title": "Team lunch at the Afonso's", "date": "2026-09-22", "type": "lunch", "time": "12:15", "where": "Afonso" }
+    {
+      "title": "Pedro Carvalho's birthday",
+      "date": "2026-10-20",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Pedro Carvalho"
+    },
+    {
+      "title": "Luís Correia's birthday",
+      "date": "2026-09-18",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Luís Correia"
+    },
+    {
+      "title": "Gonçalo Araújo's birthday",
+      "date": "2026-09-17",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Gonçalo Rocha Araújo"
+    },
+    {
+      "title": "Ana Costa's birthday",
+      "date": "2026-07-31",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Ana Costa"
+    },
+    {
+      "title": "Luís Galo's birthday",
+      "date": "2026-07-31",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Luís Galo"
+    },
+    {
+      "title": "Rafael Novo's birthday",
+      "date": "2026-07-24",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Rafael Novo"
+    },
+    {
+      "title": "José Nascimento's birthday",
+      "date": "2026-07-21",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "José Nascimento"
+    },
+    {
+      "title": "Daniela Silveira's birthday",
+      "date": "2026-07-18",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Daniela Silveira"
+    },
+    {
+      "title": "Pedro Nunes's birthday",
+      "date": "2026-06-27",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Pedro Nunes"
+    },
+    {
+      "title": "Carlos Costa's birthday",
+      "date": "2026-06-24",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Carlos Costa"
+    },
+    {
+      "title": "Rui Graça's birthday",
+      "date": "2026-06-19",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Rui Graça"
+    },
+    {
+      "title": "Team lunch at the Afonso's",
+      "date": "2026-09-22",
+      "type": "lunch",
+      "time": "12:15",
+      "where": "Afonso"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-01-02",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-01-05",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-02-16",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-03-17",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-06-25",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto",
+      "end": "2026-06-26"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-07-10",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-08-24",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto",
+      "end": "2026-08-28"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-11-02",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto",
+      "end": "2026-11-06"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-12-07",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-12-18",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2026-12-21",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto",
+      "end": "2026-12-31"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2027-01-04",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto",
+      "end": "2027-01-05"
+    },
+    {
+      "title": "No food at Porto office (Fátima on vacation)",
+      "date": "2027-03-16",
+      "type": "nofood",
+      "note": "Bring your own lunch",
+      "source": "pulsar:mfpeixoto",
+      "end": "2027-03-17"
+    }
   ]
 }
