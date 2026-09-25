@@ -2,6 +2,14 @@
   "_comment": "One entry per meme. week is the ISO week (YYYY-Www) the meme is featured. The page shows the meme for the current week, or the most recent one before it. Put the image file in this folder.",
   "memes": [
     { "file": "cat.png", "caption": "Cat meme.", "week": "2026-W38", "by": "Pedro" },
-    { "file": "image.png", "caption": "Vibe Coding", "week": "2026-W39", "by": "Rafael Novo" }
+    { "file": "image.png", "caption": "Vibe Coding", "week": "2026-W39", "by": "Rafael Novo" },
+    { "file": "a1m3g8b_700b.jpg", "caption": "", "week": "2026-W40", "by": "Pedro Carvalho" },
+    { "file": "abAjAVv_700b.jpg", "caption": "", "week": "2026-W41", "by": "Pedro Carvalho" },
+    { "file": "aD2B6q9_700b.jpg", "caption": "", "week": "2026-W42", "by": "Pedro Carvalho" },
+    { "file": "ae9XrRp_700b.jpg", "caption": "", "week": "2026-W43", "by": "Pedro Carvalho" },
+    { "file": "amoDMpV_700b.jpg", "caption": "", "week": "2026-W44", "by": "Pedro Carvalho" },
+    { "file": "aoyrGmg_700b.jpg", "caption": "", "week": "2026-W45", "by": "Pedro Carvalho" },
+    { "file": "apRe9eb_700b.jpg", "caption": "", "week": "2026-W46", "by": "Pedro Carvalho" },
+    { "file": "aZZ4RM9_700b.jpg", "caption": "", "week": "2026-W47", "by": "Pedro Carvalho" }
   ]
 }
