@@ -2,6 +2,13 @@
   "_comment": "One entry per event. date is YYYY-MM-DD. recurring: 'yearly' repeats every year on the same month/day (birthdays, work anniversaries). type drives the colour dot: lunch | birthday | anniversary | meeting | nofood | other. Optional end (YYYY-MM-DD, inclusive) makes a multi-day range, e.g. vacations; optional note is shown under the title.",
   "events": [
     {
+      "title": "Festa da espetada",
+      "date": "2026-09-30",
+      "type": "extra food",
+      "note": "register today",
+      "who": "ALL :-)"
+    },
+    {
       "title": "Pedro Carvalho's birthday",
       "date": "2026-10-20",
       "type": "birthday",
