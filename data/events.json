@@ -9,6 +9,20 @@
       "who": "Pedro Carvalho"
     },
     {
+      "title": "Luís Silva's birthday",
+      "date": "2026-05-11",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Luís Silva"
+    },
+    {
+      "title": "Ivo Fernandes's birthday",
+      "date": "2026-03-05",
+      "type": "birthday",
+      "recurring": "yearly",
+      "who": "Ivo Fernandes"
+    },
+    {
       "title": "Luís Correia's birthday",
       "date": "2026-09-18",
       "type": "birthday",
@@ -59,7 +73,7 @@
     },
     {
       "title": "Pedro Nunes's birthday",
-      "date": "2026-06-27",
+      "date": "2026-06-28",
       "type": "birthday",
       "recurring": "yearly",
       "who": "Pedro Nunes"
