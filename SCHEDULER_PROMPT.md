@@ -14,7 +14,7 @@ if the app is closed at 09:30 the run happens at next launch. Task file:
 
 Produce today's AI digest for Pedro, an AI engineer who works with LLMs, agent orchestration, RAG and cloud AI services. The digest feeds the IronWolves team newsletter page.
 
-All file paths below are relative to the repository folder `C:\Users\pmdcarvalho\Desktop\Personal\Newsletter`. Work inside that folder.
+All file paths below are relative to the repository folder `C:\Users\pmdcarvalho\Desktop\IronWolves\AI Platoon\IronWolvesAINews`. Work inside that folder.
 
 Use web search and web fetch tools for the research. Search the web for genuinely NEW developments from roughly the last 24 hours across these categories:
 

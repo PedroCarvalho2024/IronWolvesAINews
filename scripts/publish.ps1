@@ -31,10 +31,15 @@ if ($LASTEXITCODE -ne 0) {
   throw "pull --rebase failed: the same file was changed here and on GitHub. Fix the conflict by hand (git status), then rerun."
 }
 
-# 2. Build.
-Write-Host "==> Building site" -ForegroundColor Cyan
-node build.js
-if ($LASTEXITCODE -ne 0) { throw "build failed" }
+# 2. Build. This is only a local check: build output is not committed and GitHub Actions
+#    rebuilds the site, so on a machine without Node.js we skip it rather than fail.
+if (Get-Command node -ErrorAction SilentlyContinue) {
+  Write-Host "==> Building site" -ForegroundColor Cyan
+  node build.js
+  if ($LASTEXITCODE -ne 0) { throw "build failed" }
+} else {
+  Write-Host "==> Node.js not found, skipping local build (GitHub Actions will build)" -ForegroundColor Yellow
+}
 
 # 3. Commit any new content.
 $status = git status --porcelain -- $contentPaths
